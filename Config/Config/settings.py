@@ -157,4 +157,4 @@ EMAIL_HOST_PASSWORD = 'vtnmuwtbmmohwjzv'
 
 PASSWORD_RESET_TIMEOUT = 14400
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = '/static/'
