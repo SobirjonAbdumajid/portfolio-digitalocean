@@ -156,3 +156,5 @@ EMAIL_HOST_USER = 'sobirjon0305@gmail.com'
 EMAIL_HOST_PASSWORD = 'vtnmuwtbmmohwjzv'
 
 PASSWORD_RESET_TIMEOUT = 14400
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
