@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
+
 class CustomUserManager(BaseUserManager): # bu model emas. bu funksiyani bajaradigan class
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -26,6 +26,7 @@ class CustomUserManager(BaseUserManager): # bu model emas. bu funksiyani bajarad
 
         return self.create_user(email, password, **extra_fields)
 
+
 class CustomUser(AbstractUser): # bu model
     email = models.CharField(max_length=255, unique=True) # our email should be unique and this do this
     username = None
@@ -45,6 +46,7 @@ class CustomUser(AbstractUser): # bu model
 
     def __str__(self):
         return self.email
+
 
 class CodeConfirmation(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user_code')

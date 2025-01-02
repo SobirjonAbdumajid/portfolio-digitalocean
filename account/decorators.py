@@ -1,5 +1,6 @@
 from django.shortcuts import redirect
 
+
 def login_required(my_view):
     def decorator(request, *args, **kwargs):
         if request.user.is_authenticated:

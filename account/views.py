@@ -81,6 +81,7 @@ def register(request):
         template_name='auth/register.html'
     )
 
+
 def log_out(request):
     if request.user.is_authenticated:
         logout(request)
@@ -95,56 +96,7 @@ def forget_password(request):
         code = request.POST.get('code')
         user = CustomUser.objects.get(email=email)
 
-        # print('email: ', email, code)
     return render(
         request=request,
         template_name='auth/forget_password.html'
     )
-
-# from django.contrib.auth.decorators import login_required
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import authenticate, login, logout
-# from django.contrib import messages
-# from django.http import HttpResponse
-# from .models import CustomUser
-
-
-
-
-# @login_required
-# def log_in(request):
-#     # if request.user.is_authenticated:
-#     #     return redirect('home')
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#         user = authenticate(request=request, email=email, password=password)
-#         if user:
-#             login(request, user)
-#             return redirect('home')
-#         else:
-#             return HttpResponse('<h1>Invalid Credentials</h1>')
-#     return render(
-#         request=request,
-#         template_name='auth/login.html'
-#     )
-
-
-
-
-# @login_required
-# def log_in(request):
-#     if request.user.is_authenticated:
-#         return redirect('home')
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#         user = authenticate(request=request, username=email, password=password)
-
-#         if user:
-#             login(request, user)
-#             return redirect('home')
-#         else:
-#             return HttpResponse('<h1>Invalid Credentials</h1>')
-
-#     return render(request=request,template_name= 'login.html')
