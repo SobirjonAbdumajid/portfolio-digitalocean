@@ -52,14 +52,14 @@ def home(request):
 def certificates(request):
     certificates = MaqolaModel.objects.filter(tags="Certificates").order_by('-id')
 
-    somsa = Paginator(MaqolaModel.objects.filter(tags="Certificates").order_by('-id'), 1)
-    page = request.GET.get('page')
-    vanues = somsa.get_page(page)
+    # somsa = Paginator(MaqolaModel.objects.filter(tags="Certificates").order_by('-id'), 1)
+    # page = request.GET.get('page')
+    # vanues = somsa.get_page(page)
 
     context = {
         'certificates':certificates,
-        'somsa':somsa,
-        'vanues':vanues,
+        # 'somsa':somsa,
+        # 'vanues':vanues,
     }
     return render(
         request=request,
@@ -82,7 +82,7 @@ def certificates(request):
 def education(request):
     education = MaqolaModel.objects.filter(tags='Education').order_by('-id')
     context = {
-        'education':education
+        'education': education
     }
     return render(
         request=request,
