@@ -128,15 +128,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'data',
-    BASE_DIR / 'static',
-]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'data/'
-
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',  # For development, where static files are kept
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # For production, where collectstatic will store files
+
+# Media files (uploaded files, like images, etc.)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'data'  # Your media files directory
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
