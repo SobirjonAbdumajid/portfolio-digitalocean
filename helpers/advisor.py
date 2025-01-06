@@ -6,7 +6,6 @@ async def translate_advice():
     url = "https://api.adviceslip.com/advice"
     r = requests.get(url)
     advice = r.json()['slip']['advice']
-    print(advice)
 
     translator = googletrans.Translator()
     tarjima = await translator.translate(advice, dest='uz')
