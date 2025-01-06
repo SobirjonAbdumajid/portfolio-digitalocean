@@ -31,16 +31,22 @@ def projects(request):
         request=request,
         context=context,
     )
-# # Create your views here.
+
+import asyncio
+from helpers.advisor import translate_advice
 
 def home(request):
     certificates = MaqolaModel.objects.filter(tags="Certificates").order_by('-id')
     projects = MaqolaModel.objects.filter(tags='Projects').order_by('-id')
     education = MaqolaModel.objects.filter(tags='Education').order_by('-id')
+
+    translation_result = asyncio.run(translate_advice())
+
     context = {
-        'certificates':certificates,
-        'projects':projects,
-        'education':education,
+        'certificates': certificates,
+        'projects': projects,
+        'education': education,
+        'advise': translation_result,
     }
     return render(
         request=request,
