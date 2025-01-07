@@ -131,6 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # For development, where static files are kept
+    BASE_DIR / 'data',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # For production, where collectstatic will store files
 
