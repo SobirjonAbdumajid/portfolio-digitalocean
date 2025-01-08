@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class MaqolaModel(models.Model):
     TAG = (
         ("Certificates", "Certificates"),
@@ -21,3 +21,11 @@ class MaqolaModel(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class SavingAdvicesModel(models.Model):
+    eng = models.TextField(blank=True, null=True)
+    uzb = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.id

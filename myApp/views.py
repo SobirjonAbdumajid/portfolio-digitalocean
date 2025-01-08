@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import MaqolaModel
+from .models import MaqolaModel, SavingAdvicesModel
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from .serializer import MySerializer
@@ -41,6 +41,14 @@ def home(request):
     education = MaqolaModel.objects.filter(tags='Education').order_by('-id')
 
     translation_result = asyncio.run(translate_advice())
+
+    if isinstance(translation_result, dict) and 'eng' in translation_result and 'uzb' in translation_result:
+        advice_instance = SavingAdvicesModel.objects.create(
+            eng=translation_result['eng'],
+            uzb=translation_result['uzb']
+        )
+    else:
+        advice_instance = None  # Handle cases where translation_result is invalid
 
     context = {
         'certificates': certificates,
