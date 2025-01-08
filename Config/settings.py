@@ -133,7 +133,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'data',
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # For production, where collectstatic will store files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 # Media files (uploaded files, like images, etc.)
 MEDIA_URL = '/media/'
